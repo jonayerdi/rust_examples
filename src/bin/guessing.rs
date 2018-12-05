@@ -1,9 +1,10 @@
 extern crate rand;
 
 use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
 use std::io::Write; // flush()
+use std::cmp::Ordering;
+
+use rand::Rng;
 
 const RANGE: (u32, u32) = (1, 100);
 
@@ -22,14 +23,14 @@ fn main() -> io::Result<()> {
             io::stdin().read_line(&mut input)
                 .expect("Failed to read line");
             match input.trim().parse::<u32>() {
-                // Ok(n) if n > 0 && n < 101 => guess = n; break;
+                // Ok(n) if n > 0 && n < 101 => { guess = n; break; },
                 Ok(n) => {
                     match n {
                         1...100 => { guess = n; break; },
                         _ => println!("Please type a number between {} and {}", RANGE.0, RANGE.1),
                     }
                 },
-                Err(_v) => println!("Please type a positive integer!"),
+                Err(_) => println!("Please type a positive integer!"),
             }
         }
 
