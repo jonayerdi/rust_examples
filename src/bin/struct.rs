@@ -51,7 +51,6 @@ impl Rectangle {
 }
 
 fn main() -> io::Result<()> {
-    
     let user1 = User {
         email: String::from("someone@example.com"),
         username: String::from("someusername123"),
