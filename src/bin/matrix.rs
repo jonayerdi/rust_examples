@@ -31,8 +31,8 @@ impl Matrix {
         (0..self.row_count)
             .map(move |row| &self.values[row*self.column_count + column])
     }
-    fn set(&mut self, row: usize, column: usize, value: u32) {
-        self.values[self.column_count*row + column] = value;
+    fn cell(&mut self, row: usize, column: usize) -> &mut u32 {
+        &mut self.values[self.column_count*row + column]
     }
 }
 
@@ -90,7 +90,7 @@ fn main() {
     // Collect computed cell values
     let mut result = Matrix::new(ROW_COUNT, COLUMN_COUNT);
     for c in rx {
-        result.set(c.0, c.1, c.2);
+        *result.cell(c.0, c.1) = c.2;
     }
 
     // Print result
