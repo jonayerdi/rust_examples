@@ -17,6 +17,7 @@ fn main() {
     let c = Rc::new(Node { id: 3, connections: vec![a.clone(),b.clone()] });
     let d = Rc::new(Node { id: 4, connections: vec![a.clone(),b.clone(),c.clone()] });
     for node in [a,b,c,d].iter() {
+        println!("Node {}: {} references", node.id, Rc::strong_count(node));
         for conn in node.connections.iter() {
             println!("{} -> {}", node.id, conn.id);
         }
