@@ -26,7 +26,7 @@ fn main() -> io::Result<()> {
                 // Ok(n) if n > 0 && n < 101 => { guess = n; break; },
                 Ok(n) => {
                     match n {
-                        1...100 => { guess = n; break; },
+                        1..=100 => { guess = n; break; },
                         _ => println!("Please type a number between {} and {}", RANGE.0, RANGE.1),
                     }
                 },
