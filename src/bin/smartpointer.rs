@@ -1,4 +1,4 @@
-use std::ops::{Deref,DerefMut};
+use std::ops::{Deref, DerefMut};
 
 struct MyBox<T>(T);
 

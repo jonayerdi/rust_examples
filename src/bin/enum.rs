@@ -1,5 +1,5 @@
-use std::io;
 use std::fmt;
+use std::io;
 
 type IpV4Addr = [u8; 4];
 type IpV6Addr = [u8; 16];
@@ -22,14 +22,14 @@ impl fmt::Display for IpAddr {
             }
             write!(f, "{}", ipv6[15])
         } else {
-             panic!("An error occurred");
+            panic!("An error occurred");
         }
     }
 }
 
 fn main() -> io::Result<()> {
-    let ipv4 = IpAddr::V4([127,0,0,1]);
-    let ipv6 = IpAddr::V6([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]);
+    let ipv4 = IpAddr::V4([127, 0, 0, 1]);
+    let ipv6 = IpAddr::V6([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]);
     println!("{}", ipv4);
     println!("{:?}", ipv4);
     println!("{}", ipv6);

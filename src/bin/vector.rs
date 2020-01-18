@@ -1,8 +1,8 @@
+use std::fmt;
 use std::io;
 use std::io::Write;
-use std::ptr;
 use std::mem;
-use std::fmt;
+use std::ptr;
 
 enum SpreadsheetCell {
     Int(i32),

@@ -7,11 +7,9 @@ fn main() {
     let (tx, rx) = channel();
 
     // Spawn timer
-    thread::spawn(move || {
-        loop {
-            thread::sleep(Duration::from_secs(1));
-            tx.send("tick").unwrap();
-        }
+    thread::spawn(move || loop {
+        thread::sleep(Duration::from_secs(1));
+        tx.send("tick").unwrap();
     });
 
     loop {

@@ -1,4 +1,3 @@
-
 pub trait Summary {
     fn summarize(&self) -> String;
     fn summarize_author(&self) -> String;
@@ -44,7 +43,9 @@ pub fn notify<T: Summary>(item: &T) {
 }
 
 fn some_function<T, U>(_t: T, _u: U) -> i32
-    where T: std::fmt::Display + Clone, U: Clone + std::fmt::Debug 
+where
+    T: std::fmt::Display + Clone,
+    U: Clone + std::fmt::Debug,
 {
     0
 }

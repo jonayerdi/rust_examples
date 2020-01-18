@@ -1,4 +1,4 @@
-struct File (u32);
+struct File(u32);
 static mut FID: u32 = 0;
 
 impl File {

@@ -1,4 +1,4 @@
-use std::iter::{Iterator,FromIterator};
+use std::iter::{FromIterator, Iterator};
 
 struct BitsIterator<'a> {
     bytes: &'a [u8],
@@ -14,8 +14,8 @@ impl<'a> BitsIterator<'a> {
 impl<'a> Iterator for BitsIterator<'a> {
     type Item = bool;
     fn next(&mut self) -> Option<bool> {
-        if self.position < self.bytes.len()*8 {
-            let bit = self.bytes[self.position/8] & 1<<(self.position%8);
+        if self.position < self.bytes.len() * 8 {
+            let bit = self.bytes[self.position / 8] & 1 << (self.position % 8);
             self.position += 1;
             match bit {
                 0 => Some(false),
@@ -28,16 +28,16 @@ impl<'a> Iterator for BitsIterator<'a> {
 }
 
 fn main() {
-    let bits = BitsIterator::new(&[1,2,3]);
+    let bits = BitsIterator::new(&[1, 2, 3]);
     for bit in bits {
-        print!("{}", if bit {1} else {0});
+        print!("{}", if bit { 1 } else { 0 });
     }
     println!("");
     // FromIterator, map()
-    let bits = BitsIterator::new(&[1,2,3]);
-    let bits_vector = Vec::from_iter(bits.map(|bit| if bit {1} else {0}));
+    let bits = BitsIterator::new(&[1, 2, 3]);
+    let bits_vector = Vec::from_iter(bits.map(|bit| if bit { 1 } else { 0 }));
     println!("{:?}", bits_vector);
     // filter()
-    let numbers: Vec<u32> = (1..=100).filter(|n| n%2 == 0).collect();
+    let numbers: Vec<u32> = (1..=100).filter(|n| n % 2 == 0).collect();
     println!("{:?}", numbers);
 }

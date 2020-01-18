@@ -1,8 +1,8 @@
 extern crate rand;
 
-use std::mem;
-use std::cmp::PartialOrd;
 use rand::prelude::*;
+use std::cmp::PartialOrd;
+use std::mem;
 
 #[derive(Debug)]
 struct Point<T> {

@@ -1,5 +1,5 @@
-use std::io;
 use std::fmt;
+use std::io;
 
 struct User {
     username: String,
@@ -19,13 +19,15 @@ struct Point(i32, i32, i32);
 
 impl fmt::Display for User {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "\
-            username: {}\n\
-            email: {}\n\
-            sign_in_count: {}\n\
-            active: {}", 
-            self.username, self.email, 
-            self.sign_in_count, self.active)
+        write!(
+            f,
+            "\
+             username: {}\n\
+             email: {}\n\
+             sign_in_count: {}\n\
+             active: {}",
+            self.username, self.email, self.sign_in_count, self.active
+        )
     }
 }
 
@@ -43,7 +45,10 @@ impl fmt::Display for Point {
 
 impl Rectangle {
     fn square(size: u32) -> Rectangle {
-        Rectangle { width: size, height: size }
+        Rectangle {
+            width: size,
+            height: size,
+        }
     }
     fn area(&self) -> u32 {
         self.width * self.height
@@ -64,7 +69,10 @@ fn main() -> io::Result<()> {
     };
     let black = Color(0, 0, 0);
     let origin = Point(0, 0, 0);
-    let rect1 = Rectangle { width: 30, height: 50 };
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
     let rect2 = Rectangle::square(10);
     println!("{}", user1);
     println!("{}", user2);
