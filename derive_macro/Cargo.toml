@@ -1,0 +1,12 @@
+[package]
+name = "derive_macro"
+version = "0.1.0"
+authors = ["Jon Ayerdi <jon_ayerdi_33@hotmail.es>"]
+edition = "2018"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "0.14.4"
+quote = "0.6.3"

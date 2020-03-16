@@ -1,0 +1,9 @@
+[package]
+name = "rust_examples"
+version = "0.1.0"
+authors = ["Jon Ayerdi <jon_ayerdi_33@hotmail.es>"]
+edition = "2018"
+
+[dependencies]
+rand = "0.5.5"
+derive_macro = { path = "../derive_macro" }

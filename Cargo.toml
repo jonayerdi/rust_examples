@@ -1,8 +1,6 @@
-[package]
-name = "rust_examples"
-version = "0.1.0"
-authors = ["Jon Ayerdi <jon_ayerdi_33@hotmail.es>"]
-edition = "2018"
+[workspace]
 
-[dependencies]
-rand = "0.5.5"
+members = [
+    "derive_macro",
+    "rust_examples",
+]
