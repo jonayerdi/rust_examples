@@ -6,6 +6,10 @@ pub trait Summary {
     }
 }
 
+pub trait Summary2 {
+    fn summarize_author(&self) -> String;
+}
+
 pub struct NewsArticle {
     pub headline: String,
     pub location: String,
@@ -19,6 +23,12 @@ impl Summary for NewsArticle {
     }
     fn summarize_author(&self) -> String {
         format!("{}", self.author)
+    }
+}
+
+impl Summary2 for NewsArticle {
+    fn summarize_author(&self) -> String {
+        format!("Summary2: {}", self.author)
     }
 }
 
@@ -57,8 +67,16 @@ fn main() {
         reply: false,
         retweet: false,
     };
-
     notify(&tweet);
     println!("{}", tweet.read_more());
     some_function(1, 2);
+
+    let news = NewsArticle {
+        headline: String::from("Coronavirus strikes"),
+        location: String::from("Everywhere"),
+        author: String::from("John Doe"),
+        content: String::from("Lorem Ipsum"),
+    };
+    println!("{}", <NewsArticle as Summary>::summarize_author(&news));
+    println!("{}", Summary2::summarize_author(&news));
 }
