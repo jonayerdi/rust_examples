@@ -26,6 +26,7 @@ impl<T: 'static> From<T> for Global<T> {
 }
 
 static VALUE: Global<u32> = Global::new(0);
+static mut VALUE2: u32 = 0;
 
 fn main() {
     println!("{}", VALUE.get());
@@ -39,4 +40,9 @@ fn main() {
     .join()
     .unwrap();
     println!("{}", VALUE.get());
+    unsafe {
+        println!("{}", VALUE2);
+        VALUE2 = 4;
+        println!("{}", VALUE2);
+    }
 }
